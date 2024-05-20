@@ -1,25 +1,44 @@
+// palindrome.js
 function isPalindrome(word) {
-  // Write your algorithm here
+  for (let startIndex = 0; startIndex < word.length / 2; startIndex++) {
+    const endIndex = word.length - 1 - startIndex;
+    if (word[startIndex] !== word[endIndex]) {
+      return false;
+    }
+  }
+  return true;
 }
 
-/* 
-  Add your pseudocode here
-*/
+module.exports = isPalindrome; // Export the function
 
-/*
-  Add written explanation of your solution here
-*/
+// indexTest.js
+//const isPalindrome = require('./palindrome'); // Import the function
 
-// You can run `node index.js` to view these console logs
-if (require.main === module) {
-  // add your own custom tests in here
-  console.log("Expecting: true");
-  console.log("=>", isPalindrome("racecar"));
+// Test cases
+console.log("Expecting: true");
+console.log("=>", isPalindrome("racecar"));
 
-  console.log("");
+console.log("");
 
-  console.log("Expecting: false");
-  console.log("=>", isPalindrome("robot"));
-}
+console.log("Expecting: true");
+console.log("=>", isPalindrome("mom"));
 
-module.exports = isPalindrome;
+console.log("");
+
+console.log("Expecting: true");
+console.log("=>", isPalindrome("abba"));
+
+console.log("");
+
+console.log("Expecting: true");
+console.log("=>", isPalindrome("a"));
+
+console.log("");
+
+console.log("Expecting: false");
+console.log("=>", isPalindrome("hi"));
+
+console.log("");
+
+console.log("Expecting: false");
+console.log("=>", isPalindrome("robot"));
